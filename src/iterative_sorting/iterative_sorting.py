@@ -1,26 +1,66 @@
-# TO-DO: Complete the selection_sort() function below
-def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
+# # TO-DO: Complete the selection_sort() function below
+# def selection_sort(arr):
+#     # loop through n-1 elements
+#     for i in range(0, len(arr) - 1):
+#         cur_index = i
+#         smallest_index = cur_index
+#         # TO-DO: find next smallest element
+#         # (hint, can do in 3 loc)
+#         # Your code here
 
 
-        # TO-DO: swap
-        # Your code here
+#         # TO-DO: swap
+#         # Your code here
 
-    return arr
+#     return arr
+
+def selection_sort(a_list):
+    # get the range of what we need to compare
+    indexing_length = range(0, len(a_list) - 1)
+    
+    # for every element in the unsorted list
+    for i in indexing_length:
+        # set the first element in the unsorted list as default min value
+        min_value = i
+
+        # for every element to the right 
+        for j in range(i + 1, len(a_list)):
+            # if element is less than current min value
+            if a_list[j] < a_list[min_value]:
+                # replace the min value
+                min_value = j
+        
+        # if the min value is lower than the default
+        if min_value != i:
+            # switch the items
+            a_list[min_value], a_list[i] = a_list[i], a_list[min_value]
+
+    return a_list
+
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+        # get the length that we are indexing (current list - 1)
+    indexing_length = len(arr) - 1
+    
+    # make a variable that will help break out of the while loop
+    sorted = False
 
+    # while the list is not sorted
+    while not sorted: # when sorted is False
+        sorted = True
+        # for loop for comparison
+        for i in range(0, indexing_length):
+            # if the left item is greater than right item
+            if arr[i] > arr[i+1]:
+                # set the sort to false
+                sorted = False
+                # flip the two values in the list
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+    
+    return arr # list is actually sorted now
 
-    return arr
 
 '''
 STRETCH: implement the Counting Sort function below
